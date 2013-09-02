@@ -1,14 +1,32 @@
 <!doctype html>
 <html ng-app="talk">
   <head>
-<!--    <script src="/static/js/jquery.js"></script> -->
-    <script src="/static/js/angular.js"></script>
-    <script src="/static/js/angular-resource.js"></script>
-    <script src="/static/js/talk.js"></script>
-    <script src="/static/js/api.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/talk.css" rel="stylesheet" media="screen">
   </head>
   <body>
-      <h1>User topics</h1>
-    <div ng-view></div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2 sidebar">
+          <!--Sidebar content-->
+          <ul>
+            <li><a href="/#/discussion">Discussion</a></li>
+            <li><a href="/#/changelog">Changelog</a></li>
+            <li><a href="/#/questions">Questions</a></li>
+            <li>FAQ</li>
+            <li>Chat</li>
+          </ul>
+        </div>
+        <div class="span10 body">
+          <!--Body content-->
+          <div ng-view></div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/angular.js"></script>
+    <script src="/static/js/talk.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

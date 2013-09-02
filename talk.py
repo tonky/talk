@@ -1,8 +1,8 @@
 from flask import Flask, url_for, render_template, json
+from models import Post, Topic
+from settings import Session
 
 app = Flask(__name__)
-
-# url_for('static', filename='js/angular.js')
 
 @app.route("/")
 def hello():
@@ -10,8 +10,11 @@ def hello():
 
 @app.route("/api/posts/")
 def posts():
-    return json.dumps([{'title': 'my first post'}, {'title': 'second post'}])
+    session = Session()
+    topics = session.query(Topic).all()
 
+    a = [{'title': t.title, 'posts': [{'body': p.body} for p in t.posts]} for t in topics]
+    return json.dumps(a)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,11 +1,16 @@
-angular.module('talk', ['api']).
+angular.module('talk', []).
   config(function($routeProvider) {
     $routeProvider.
-      when('/', {controller:ListCtrl, templateUrl:'static/ng/list.html'}).
-      otherwise({redirectTo:'/'});
+      when('/discussion', {templateUrl:'static/templates/discussion.html'}).
+      when('/changelog', {templateUrl:'static/templates/changelog.html'}).
+      when('/questions', {templateUrl:'static/templates/questions.html', controller:QuestionsCtrl}).
+      otherwise({redirectTo:'/index'});
   });
  
  
-function ListCtrl($scope, Post) {
-  $scope.posts = Post.query();
+function QuestionsCtrl($scope) {
+  $scope.questions = [
+    {"title": "first question", "body": "first body"},
+    {"title": "second question", "body": "second body"}
+  ];
 }

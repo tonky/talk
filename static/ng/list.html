@@ -1,5 +1,8 @@
-<h3>Posts</h3>
+<h2>Posts</h2>
 
-<ul ng-repeat="post in posts | orderBy:'name'">
-  <li>{{post.title}}</li>
-</ul>
+<div ng-repeat="topic in topics | orderBy:'name'" class="topic">
+  <h3>{{ topic.title }}</h3>
+  <div ng-repeat="post in topic.posts | orderBy:'name'" class="post">
+    {{ post.body }}
+  </div>
+</div>
